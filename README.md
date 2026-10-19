@@ -4,7 +4,7 @@ An interactive platform for exploring LLM internals, model layers, tensors, and 
 The project is built around one idea: language models become much easier to understand when their internal structure can be inspected visually instead of treated as a black box.
 <p align="center">
   <img
-    src="docs/media/llm-visualizer-demo.gif"
+    src="GIF/LLM_Visualizer_README_demo_ultra.gif"
     width="100%"
     alt="LLM Visualizer interactive demo"
   />
