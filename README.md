@@ -1,7 +1,20 @@
-LLM Visualizer
-An interactive platform for exploring LLM internals, model layers, tensors, and token-level computation.
+# LLM Visualizer
 
-The project is built around one idea: language models become much easier to understand when their internal structure can be inspected visually instead of treated as a black box.
+<p align="center">
+  <strong>An interactive platform for exploring LLM internals, model layers, tensors, and token-level computation.</strong>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/LLM_Internals-FFA500?style=flat-square" alt="LLM Internals">
+  <img src="https://img.shields.io/badge/Tensor_Inspection-30363D?style=flat-square" alt="Tensor Inspection">
+  <img src="https://img.shields.io/badge/Model_Visualization-30363D?style=flat-square" alt="Model Visualization">
+  <img src="https://img.shields.io/badge/GGUF_Exploration-30363D?style=flat-square" alt="GGUF Exploration">
+</p>
+
+---
+
+## 🎥 Interactive Demo
+
 <p align="center">
   <img
     src="GIF/LLM_Visualizer_README_demo_ultra.gif"
@@ -11,97 +24,116 @@ The project is built around one idea: language models become much easier to unde
 </p>
 
 <p align="center">
-  <sub>
-    Interactive architecture, tensor, layer, projection, walkthrough, and debugger views.
-  </sub>
+  <sub>Architecture, tensor, layer, projection, walkthrough, attention, and debugger views.</sub>
 </p>
 
-What it explores
-LLM Visualizer provides an interactive workspace for inspecting different parts of a language model and understanding how information moves through it.
+---
 
-The current interface demonstrates areas including:
-- Model architecture — inspect the structure of the loaded model and move through individual layers.
-- Layer visualization — explore transformer blocks and their position inside the network.
-- Tensor inspection — browse model tensors, tensor groups, shapes, and related metadata.
-- Projection views — visualize selected components and transformations spatially.
-- Normalization and MLP internals — inspect intermediate operations and associated mathematical expressions.
-- Attention internals — explore attention-related tensors and projections.
-- Model walkthrough — move through model components in a more guided, chapter-like flow.
-- Debugger workspace — inspect captured tensor information and internal model state.
-Why this project exists
-Most LLM tooling focuses on either using models or measuring their outputs.
+## 🧭 Overview
 
-LLM Visualizer approaches the problem from the opposite direction:
-What is actually happening inside the model?
+LLM Visualizer is built around one idea:
 
-Instead of reducing a transformer to a diagram in a textbook, the goal is to make its architecture, tensors, layers, and intermediate computation something that can be actively explored.
+> **Language models become easier to understand when their internal structure can be inspected instead of treated as a black box.**
 
-This project is part of a broader effort to connect:
+The application provides an interactive workspace for moving from the high-level architecture of a model down into individual layers, tensors, projections, and internal computations.
 
-LLM theory → model files → tensors → computation → visual understanding
-Demo
-Interactive preview
-The animated preview above is a condensed tour of the application.
+Its goal is not simply to display a transformer diagram. It is to connect:
 
-For a more complete walkthrough, keep the full demo video alongside the repository:
-docs/media/llm-visualizer-full-demo.mp4
-You can link it from the README with:
-[▶ View the full walkthrough](docs/media/llm-visualizer-full-demo.mp4)
-The GIF is intended for immediate visual context. The MP4 preserves the detail needed to inspect the full interface.
-Interface areas
-Architecture
-Explore the model as a sequence of transformer layers rather than a single opaque file.
+```text
+LLM theory
+   ↓
+model structure
+   ↓
+layers and components
+   ↓
+tensors and projections
+   ↓
+internal computation
+   ↓
+visual understanding
+```
 
-The architecture view is designed to make it easier to understand:
-- where a layer exists in the model,
-- how deep it is,
-- which component is currently selected,
-- and how different transformer stages relate to one another.
-Tensor Grid
-Inspect tensors associated with the loaded model using a structured grid.
+---
 
-This makes it easier to move from:
-model
-  ↓
-layer
-  ↓
-component
-  ↓
-tensor
+## 🔍 What it explores
+
+| Area | Purpose |
+|---|---|
+| **Architecture** | Inspect the model as a sequence of transformer layers |
+| **Layer Visualization** | Move through blocks and inspect their position in the network |
+| **Tensor Grid** | Browse tensor groups, shapes, names, and metadata |
+| **Projection Views** | Visualize selected transformations spatially |
+| **Normalization / MLP** | Inspect intermediate operations with mathematical context |
+| **Attention Internals** | Explore attention-related tensors and projections |
+| **Walkthrough** | Follow a more guided model-exploration flow |
+| **Debugger** | Inspect captured internal state and tensor information |
+
+---
+
+## 🧠 Why this project exists
+
+Most LLM tooling focuses on **using models** or **measuring their outputs**.
+
+LLM Visualizer asks a different question:
+
+> **What is actually happening inside the model?**
+
+The project is intended to make model internals something that can be actively explored, compared, and reasoned about rather than memorized from static diagrams.
+
+---
+
+## 🧩 Interface Areas
+
+### Architecture
+
+Explore the loaded model layer-by-layer and understand how individual components fit into the larger transformer.
+
+### Tensor Grid
+
+Move from:
+
+```text
+model → layer → component → tensor
+```
+
 without manually digging through raw model metadata.
-Mathematical context
-Selected model operations can be paired with their mathematical representation so that the visual interface is not separated from the underlying computation.
 
-Examples include normalization, projection, MLP, and attention-related operations.
-Walkthrough
-The walkthrough view organizes model internals into a more guided exploration path.
+### Mathematical Context
 
-This is intended to bridge the gap between:
-- reading about transformer architecture,
-- inspecting an actual model,
-- and understanding how the corresponding tensors fit together.
-Debugger
-The debugger workspace provides a place to inspect captured internal information during model exploration.
+Selected operations can be paired with their mathematical representation so the UI stays connected to the computation underneath.
 
-The long-term goal is to make this useful for investigating intermediate activations, layer behavior, and other model-level diagnostics.
-Project direction
-LLM Visualizer is being developed toward a broader LLM engineering and learning environment, with areas such as:
-- GGUF model loading and inspection,
-- tensor-level exploration,
-- layer and component visualization,
-- token-level computation views,
-- attention inspection,
-- model walkthroughs,
-- debugger-style internal inspection,
-- and integration with an understanding-first LLM engineering notebook.
-The project is intentionally evolving beyond a static architecture diagram into an interactive environment for learning, inspecting, and experimenting with language models.
-Related project
-LLM Engineering Notebook
-The visualizer is closely related to the LLM Engineering Notebook.
+### Walkthrough
 
-The notebook focuses on structured understanding of LLM architecture and engineering, while LLM Visualizer provides the interactive visual layer for many of the same concepts.
+A guided view for connecting conceptual transformer architecture with the model's actual internal components.
 
-Together, the direction is:
+### Debugger
+
+A workspace for inspecting captured tensor information and internal model state during exploration.
+
+---
+
+## 🚧 Project Direction
+
+LLM Visualizer is being developed toward a broader LLM engineering and learning environment, including:
+
+- GGUF model loading and inspection
+- tensor-level exploration
+- layer and component visualization
+- token-level computation views
+- attention inspection
+- interactive walkthroughs
+- debugger-style internal inspection
+- integration with an understanding-first LLM Engineering Notebook
+
+---
+
+## 📓 Related Project
+
+### [LLM Engineering Notebook](https://github.com/TheNityant/LLM_Notebook)
+
+The notebook focuses on structured understanding of LLM architecture and engineering, while LLM Visualizer provides the interactive visual layer.
+
+```text
 Theory
   ↓
 Engineering notes
@@ -111,11 +143,18 @@ Model inspection
 Interactive visualization
   ↓
 Experiments
-Status
-This project is under active development.
+```
 
-The current build already demonstrates the core visual exploration workflow, while additional model-inspection and debugging capabilities are being developed progressively.
+---
+
+## 📌 Status
+
+The project is under active development. The current build demonstrates the core visual exploration workflow while additional model-inspection and debugging capabilities are being developed.
+
+---
+
 <div align="center">
 
-Understand what's happening underneath. Then build with it.
+**Understand what's happening underneath. Then build with it.**
+
 </div>
