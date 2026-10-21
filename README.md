@@ -1,7 +1,7 @@
 # LLM Visualizer
 
 <p align="center">
-  <strong>An interactive platform for exploring LLM internals, model layers, tensors, and token-level computation.</strong>
+  <strong>TokenPrint An interactive platform for exploring LLM internals, model layers, tensors, and token-level computation.</strong>
 </p>
 
 <p align="center">
